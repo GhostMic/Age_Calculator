@@ -127,22 +127,15 @@ void Date::current_age(const Present_date& pd, const Birth_date& bd)
     int bmonth = bd.m;
     int pmonth = pd.m;
     int month_counter = 0;
-    if(pd.m == bd.m && pd.d < bd.d){
-        while(bmonth+1 != pmonth){
-            if(bmonth >= 12){
-                bmonth = 0;
-            }
-            bmonth++;
-            month_counter++;
+    if(bd.m == pd.m && bd.d > pd.d){
+        bmonth++;
+    }
+    while(bmonth != pmonth){
+        if(bmonth >= 12){
+            bmonth = 0;
         }
-    } else {
-        while(bmonth != pmonth){
-            if(bmonth >= 12){
-                bmonth = 0;
-            }
-            bmonth++;
-            month_counter++;
-        }
+        bmonth++;
+        month_counter++;
     }
     months = month_counter;
 
